@@ -5,6 +5,7 @@ import type React from "react"
 import Link from "next/link"
 import { Facebook, Twitter, Instagram, Linkedin, Github } from "lucide-react"
 import MaxWidthWrapper from "./max-width-wrapper"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -23,8 +24,9 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <div className="h-8 w-8 rounded-full bg-gradient-to-tr from-sky-500 to-blue-600 mr-2"></div>
-              <span className="font-bold text-xl dark:text-white">DigitalSolutions</span>
+              <div>
+                <Image className="w-[14rem]" src="/logo.png" alt="Logo" width={32} height={32} />
+              </div>
             </div>
             <p className="text-muted-foreground mb-4 dark:text-gray-300">
               Creating innovative digital experiences that transform businesses and engage users.

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { MoonIcon, SunIcon, Menu, X } from "lucide-react"
 import { useTheme } from "next-themes"
 import MaxWidthWrapper from "./max-width-wrapper"
+import Image from "next/image"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -45,13 +46,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <div className="relative flex items-center">
-              <div className="h-8 w-8 rounded-full bg-gradient-to-tr from-sky-500 to-blue-600 mr-2"></div>
-              <span
-                className={`font-bold text-xl ${scrolled ? "text-gray-900 dark:text-white" : "text-white dark:text-white"
-                  }`}
-              >
-                DigitalSolutions
-              </span>
+              <div>
+                <Image className="w-[14rem]" src="/logo.png" alt="Logo" width={32} height={32} />
+              </div>
             </div>
           </Link>
 
@@ -71,8 +68,8 @@ export default function Navbar() {
 
             <Button
               className={`ml-4 ${scrolled
-                  ? "bg-sky-600 hover:bg-sky-700 text-white"
-                  : "bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/30"
+                ? "bg-sky-600 hover:bg-sky-700 text-white"
+                : "bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/30"
                 }`}
               onClick={() => scrollToSection("contact")}
             >
