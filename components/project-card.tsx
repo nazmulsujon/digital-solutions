@@ -37,7 +37,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <motion.div variants={item} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-      <Card className="overflow-hidden group h-full transition-all duration-500 shadow-lg border hover:shadow-2xl  relative transform hover:-translate-y-2">
+      <Card className="h-full overflow-hidden group transition-all duration-500 shadow-lg border border-gray-300 hover:shadow-2xl  relative transform hover:-translate-y-2">
         {/* Gradient background with improved colors */}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-sky-50 to-blue-50 dark:from-gray-900 dark:via-sky-950/90 dark:to-blue-950/80 opacity-100 transition-opacity"></div>
 
@@ -45,13 +45,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-sky-400/20 to-transparent rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-700 dark:from-sky-400/10"></div>
         <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-blue-400/20 to-transparent rounded-tr-full transform -translate-x-8 translate-y-8 group-hover:-translate-x-4 group-hover:translate-y-4 transition-transform duration-700 dark:from-blue-400/10"></div>
 
-        <div className="relative">
+        <div className="relative flex flex-col h-full">
           <div className="relative h-64 overflow-hidden">
             <Image
               src={project.image || "/placeholder.svg"}
               alt={project.name}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              className="object-fill transition-transform duration-700 group-hover:scale-110"
             />
 
             {/* Category badge */}
@@ -90,14 +90,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </div>
           </div>
 
-          <CardContent className="relative p-6 z-10">
+          <CardContent className="relative p-6 z-10 flex-grow">
             <h3 className="text-xl font-bold mb-2 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
               {project.name}
             </h3>
             <p className="text-muted-foreground dark:text-gray-300">{project.description}</p>
           </CardContent>
 
-          {/* <CardFooter className="p-6 pt-0 relative z-10">
+          <CardFooter className="p-6 pt-0 relative z-10">
             <Button
               variant="outline"
               className="w-full group-hover:bg-gradient-to-r group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white group-hover:border-transparent transition-all duration-300 dark:border-gray-700 dark:text-gray-300 dark:hover:text-white"
@@ -107,7 +107,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 View Live Site <ExternalLink className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-          </CardFooter> */}
+          </CardFooter>
         </div>
       </Card>
     </motion.div>

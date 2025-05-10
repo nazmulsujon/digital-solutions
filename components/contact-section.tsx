@@ -6,9 +6,21 @@ import { Textarea } from "@/components/ui/textarea"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Mail, MapPin, Phone } from "lucide-react"
+import dynamic from "next/dynamic"
+
+// Dynamically import the Map component with no SSR
+const MapComponent = dynamic(() => import("./map-content"), {
+  ssr: false,
+  loading: () => <div className="h-[400px] bg-gray-100 dark:bg-gray-700 rounded-lg animate-pulse" />,
+})
 
 export default function ContactSection() {
   const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  const [mapRef, mapInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
@@ -99,8 +111,24 @@ export default function ContactSection() {
             </div>
           </div>
         </motion.div>
+
+        {/* Map Section */}
+        <motion.div
+          ref={mapRef}
+          initial={{ opacity: 0, y: 20 }}
+          animate={mapInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="max-w-6xl mx-auto mt-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden"
+        >
+          <div className="p-6">
+            <h2 className="text-2xl font-bold mb-4 dark:text-white">Find Us</h2>
+            <p className="mb-6 text-gray-600 dark:text-gray-300">Visit our office at Karwan Bazar, Dhaka, Bangladesh</p>
+          </div>
+          <div className="h-[400px] w-full">
+            <MapComponent />
+          </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-

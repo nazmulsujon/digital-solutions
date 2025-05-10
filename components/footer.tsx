@@ -25,7 +25,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center mb-4">
               <div>
-                <Image className="w-[14rem]" src="/logo.png" alt="Logo" width={32} height={32} />
+                <Image className="w-[10rem] md:w-[14rem]" src="/logo.png" alt="Logo" width={32} height={32} />
               </div>
             </div>
             <p className="text-muted-foreground mb-4 dark:text-gray-300">

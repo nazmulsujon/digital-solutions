@@ -33,7 +33,7 @@ export default function ProjectShowcase() {
   }
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-background to-gray-50 dark:to-gray-950">
+    <section id="projects" className="py-20 bg-gradient-to-br from-sky-50 via-white to-blue-50 dark:from-sky-950 dark:via-gray-900 dark:to-blue-950">
       <MaxWidthWrapper>
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Our Project Portfolio</h2>

@@ -47,7 +47,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center">
             <div className="relative flex items-center">
               <div>
-                <Image className="w-[14rem]" src="/logo.png" alt="Logo" width={32} height={32} />
+                <Image className="w-[10rem] md:w-[14rem]" src="/logo.png" alt="Logo" width={32} height={32} />
               </div>
             </div>
           </Link>
